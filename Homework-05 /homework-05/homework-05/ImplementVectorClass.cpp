@@ -9,35 +9,49 @@
 #include "ImplementVectorClass.hpp"
 
 template<typename T>
-MyVector<T>::MyVector() {
-    vectorSize = 0;
+Vector<T>::Vector(int size) {
+    vectorSize;
+    T elements;
 }
+
 template<typename T>
-bool MyVector<T>::empty() {
+Vector<T>::Vector(int size, T defaultValue) {
+    vectorSize;
+    T elements;
+}
+
+template<typename T>
+bool const Vector<T>::empty() {
     return (vectorSize == 0);
 }
+
 template<typename T>
-T MyVector<T>::at(int index) {
+T const Vector<T>::at(int index) {
     return elements[index];
 }
+
 template<typename T>
-void MyVector<T>::push_back(T value) {
+void Vector<T>::push_back(T value) {
     elements[vectorSize++];
 }
+
 template<typename T>
-void MyVector<T>::pop_back() {
+void Vector<T>::pop_back() {
     elements[--vectorSize];
 }
+
 template<typename T>
-unsigned int MyVector<T>::size() {
+unsigned const Vector<T>::size() {
     return vectorSize;
 }
+
 template<typename T>
-void MyVector<T>::clear() {
+void Vector<T>::clear() {
     vectorSize = 0;
 }
+
 template<typename T>
-void MyVector<T>::swap(MyVector v2) {
+void Vector<T>::swap(Vector v2) {
     T temp[100];
     int tempSize = v2.size();
     for (int i = 0; i < v2.size(); i++) {
@@ -52,3 +66,8 @@ void MyVector<T>::swap(MyVector v2) {
         push_back(temp[i]);
     }
 }
+
+
+
+
+

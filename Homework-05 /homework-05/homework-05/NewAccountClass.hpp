@@ -10,5 +10,19 @@
 #define NewAccountClass_hpp
 
 #include <stdio.h>
+#include <string>
+using namespace std;
+
+class NewAccount {
+private:
+    int id;
+    double balance;
+    double static annualInterestRate;
+    string name;
+    
+public:
+    NewAccount();
+    
+};
 
 #endif /* NewAccountClass_hpp */

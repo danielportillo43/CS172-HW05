@@ -10,5 +10,19 @@
 #define ShuffleVector_hpp
 
 #include <stdio.h>
+#include <iostream>
+#include <vector>
+using namespace std;
+
+template<typename T>
+void shuffle(vector<T>& v) {
+    srand(time(0));
+    for (int i = 0; i < v.size(); i++) {
+        int index = rand() % v.size();
+        T temp = v[index];
+        v[index] = v[i];
+        v[i] = temp;
+    }
+}
 
 #endif /* ShuffleVector_hpp */

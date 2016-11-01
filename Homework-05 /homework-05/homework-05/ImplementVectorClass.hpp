@@ -10,22 +10,22 @@
 #define ImplementVectorClass_hpp
 
 #include <stdio.h>
-#include <iostream>
-
 template <typename T>
-class MyVector {
+class Vector {
     T elements[100];
     int vectorSize;
     
 public:
-    MyVector();
+    Vector<T>();
+    Vector(int size);
+    Vector(int size, T defaultValue);
     void push_back(T element);
     void pop_back();
-    unsigned int size();
-    bool empty();
-    T at(int index);
+    unsigned const size();
+    T const at(int index);
+    bool const empty();
     void clear();
-    void swap(MyVector v2);
+    void swap(Vector v2);
 };
 
 #endif /* ImplementVectorClass_hpp */
