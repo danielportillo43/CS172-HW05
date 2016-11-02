@@ -11,12 +11,13 @@
 #include <stack>
 #include "LinearSearch.hpp"
 #include "IsSorted.hpp"
-#include "ImplementVectorClass.hpp"
+#include "ImplementVectorClass.cpp"
 #include "ShuffleVector.hpp"
+#include "NewAccountClass.cpp"
 using namespace std;
 
 int main(int argc, const char * argv[]) {
-/*
+
 ////Exercise 12.02
     int intArray[] ={1, 2, 3, 15, 23, 31};
     cout << "linearSearch(intArray, 3, 6) is " << linearSearch(intArray, 3, 6) << endl;
@@ -40,12 +41,12 @@ int main(int argc, const char * argv[]) {
     
     cout << "Is the string array sorted? " << (isSorted(list3, 3) ? "true" : "false") << endl;
     
- */
+ 
 ///Exercise 12.08
     Vector<int> v1;
     v1.push_back(1);
     v1.push_back(2);
-    cout << "---------------\nv1\n";
+    cout << "A---------------v1\n";
     for (int i = 0; i < v1.size(); i++)
         cout << v1.at(i) << " \n";
     
@@ -56,19 +57,33 @@ int main(int argc, const char * argv[]) {
     v2.push_back(6);
     v2.push_back(7);
     
-    cout << "---------------\nv2\n";
-    for (int i = 0; i < v1.size(); i++)
+    cout << "B---------------v2\n";
+    for (int i = 0; i < v2.size(); i++)
         cout << v2.at(i) << " \n";
     
     v1.swap(v2);
     
-    cout << "---------------\nv1\n";
+    cout << "C---------------v1\n";
     for (int i = 0; i < v1.size(); i++)
         cout << v1.at(i) << " \n";
-    cout << "---------------\nv2\n";
+    
+    v2.pop_back();
+    v2.pop_back();
+    
+    cout << "D--------------- v2\n";
+    for (int i = 0; i < v2.size(); i++)
+        cout << v2.at(i) << " \n";
+    
+    cout << endl << v1.empty() << endl << endl;
+    
+    v1.clear();
+    
+    cout << "E--------------- v2\n";
     for (int i = 0; i < v1.size(); i++)
         cout << v2.at(i) << " \n";
- /*
+    
+    cout << endl << v1.empty() << endl << endl;
+    
 ////Exercise 12.20
     vector<int> v;
     
@@ -87,12 +102,18 @@ int main(int argc, const char * argv[]) {
     
     for (int i = 0; i < v.size(); i++)
         cout << v[i] << " ";
-    
-    
-*/
+ 
 ////Exercise 12.25
+    NewAccount a1("George", 1122, 1000);
     
+    a1.deposit(30, "deposit 1");
+    a1.deposit(40, "deposit 2");
+    a1.deposit(50, "deposit 3");
+    a1.withdraw(5, "withdraw 1");
+    a1.withdraw(4, "withdraw 2");
+    a1.withdraw(2, "withdraw 3");
     
+    cout << "Account holder: " << a1.getName() << endl << "Annual Interest: " << a1.getAnnualInterestRate() << endl << "Balance: " << a1.getBalance() << endl;
  
     return 7;
 }

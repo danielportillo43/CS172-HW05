@@ -7,41 +7,52 @@
 //
 
 #include "ImplementVectorClass.hpp"
-
 template<typename T>
+Vector<T>::Vector() {
+    vectorSize = 0;
+}
+
+template <typename T>
 Vector<T>::Vector(int size) {
-    vectorSize;
-    T elements;
+    vectorSize = size;
+}
+
+template <typename T>
+Vector<T>::Vector(int size, T defaultValue[size]) {
+    vectorSize = size;
+    for (int i = 0; i < vectorSize; i++) {
+        elements[i] = defaultValue[i];
+    }
 }
 
 template<typename T>
-Vector<T>::Vector(int size, T defaultValue) {
-    vectorSize;
-    T elements;
+bool Vector<T>::empty() {
+    if(vectorSize == 0) {
+        return true;
+    }
+    return false;
 }
 
 template<typename T>
-bool const Vector<T>::empty() {
-    return (vectorSize == 0);
-}
-
-template<typename T>
-T const Vector<T>::at(int index) {
+T Vector<T>::at(int index) {
     return elements[index];
 }
 
 template<typename T>
 void Vector<T>::push_back(T value) {
-    elements[vectorSize++];
+    elements[vectorSize++] = value;
 }
 
 template<typename T>
 void Vector<T>::pop_back() {
-    elements[--vectorSize];
+    if (vectorSize > 0) {
+        --vectorSize;
+    }
 }
 
 template<typename T>
-unsigned const Vector<T>::size() {
+unsigned const Vector<T>::size()
+ {
     return vectorSize;
 }
 
@@ -52,22 +63,16 @@ void Vector<T>::clear() {
 
 template<typename T>
 void Vector<T>::swap(Vector v2) {
-    T temp[100];
+    T temp[10000];
     int tempSize = v2.size();
-    for (int i = 0; i < v2.size(); i++) {
+    for (int i = 0; i < v2.size(); i++)
         temp[i] = v2.at(i);
-    }
+    
     v2.clear();
-    for (int i = 0; i < size(); i++) {
+    for (int i = 0; i < size(); i++)
         v2.push_back(at(i));
-    }
+    
     clear();
-    for (int i = 0; i < tempSize; i++) {
+    for (int i = 0; i < tempSize; i++)
         push_back(temp[i]);
-    }
 }
-
-
-
-
-

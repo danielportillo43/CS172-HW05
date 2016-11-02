@@ -13,8 +13,8 @@
 
 template<typename T>
 bool isSorted(const T list[], int size) {
-    for (int i = 0; i < size - 1; i++) {
-        if (list[i] > list[i + 1]) {
+    for (int i = 0; i < size - 1; i++) {// step through the whole array
+        if (list[i] > list[i + 1]) {//make sure the next element is bigger than the previous element
             return false;
         }
     }
